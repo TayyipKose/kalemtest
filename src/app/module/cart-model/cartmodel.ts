@@ -1,6 +1,5 @@
 import { compileInjectable } from "@angular/compiler";
 import { Injectable } from "@angular/core";
-import { ITEMS } from "server/db-data";
 import { IProduct } from "src/app/model/iproduct";
 
 
@@ -13,7 +12,7 @@ export class Cart {
     addItem(_product: IProduct, _quantity: any = 1) {
         let item = this.basketItems.find(i => i.product.id === _product.id);
         if (item != undefined) {
-            item.quantity += _quantity;
+            item.adet += _quantity;
         } else {
             this.basketItems.push(new CartItem(_product, _quantity))
         }
@@ -24,15 +23,19 @@ export class Cart {
         this.itemCount = 0;
         this.total = 0;
         this.basketItems.forEach(x => {
-            this.itemCount += x.quantity;
-            this.total += (x.quantity * x.product.price);
+            this.itemCount += x.adet;
+            this.total += (x.adet * x.product.price);
         })
     }
-    updateQuantity(_product: IProduct, _quantity: number) {
-        let item = this.basketItems.find(i => i.product.id === _product.id);
-        if (item != undefined) {
-            item.quantity = _quantity;
+    updateQuantity(_product: IProduct, _quantity: number,) {
+        const index = this.basketItems.findIndex(i => i.product.id === _product.id);
+        if (index !== -1) {
+            this.basketItems[index].adet = _quantity
         }
+        else if (index < 1) {
+            this.removeItem(_quantity);
+        }
+
         this.calculate();
     }
     removeItem(_id: number) {
@@ -49,5 +52,7 @@ export class Cart {
 }
 
 export class CartItem {
-    constructor(public product: IProduct, public quantity: number) { }
+    constructor(public product: IProduct,
+        public adet: number
+    ) { }
 }

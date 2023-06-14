@@ -8,12 +8,12 @@ import { IProduct } from '../model/iproduct';
 })
 export class ShopService implements OnInit {
 
-  constructor(private http: HttpClient, @Inject('BASE_API_URL') private baseUrl: string) { }
+  constructor(private _http: HttpClient, @Inject('BASE_API_URL') private baseUrl: string) { }
 
   ngOnInit(): void {
     this.allProducts();
   }
   allProducts(): Observable<any> {
-    return this.http.get<IProduct[]>(`${this.baseUrl}/api/products`);
+    return this._http.get<IProduct[]>(`${this.baseUrl}/api/products`);
   }
 }

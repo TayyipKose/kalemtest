@@ -1,5 +1,5 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Cart } from '../../basket/cart-model/cartmodel';
+import { Cart } from 'src/app/module/cart-model/cartmodel';
 
 @Component({
   selector: 'app-cart-summart',
@@ -7,7 +7,7 @@ import { Cart } from '../../basket/cart-model/cartmodel';
   styleUrls: ['./cart-summart.component.scss']
 })
 export class CartSummartComponent implements OnInit, OnChanges {
-
+  isShow: boolean = false;
   constructor(public xcart: Cart) { }
 
   ngOnInit(): void {

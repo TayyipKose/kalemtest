@@ -1,4 +1,7 @@
 <div class="container">
+    <div>
+        <app-cart-summart></app-cart-summart>
+    </div>
     <div class="row">
         <ng-container *ngFor="let item of productList">
             <div class="col-md-3">
@@ -7,10 +10,11 @@
                     <div class="card-body">
                         <h4 class="card-title">{{item.title}}</h4>
                         <small class="text-muted">
-                            <div class="fas fa-lira-sign " style="color: black;">
+                            <div class="fas fa-lira-sign" style="color: black;">
                                 <h5>
                                     {{item. price}} ₺
                                 </h5>
+
                             </div>
                         </small>
                     </div>

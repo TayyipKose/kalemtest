@@ -21,6 +21,8 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   providers: [{ provide: 'BASE_API_URL', useValue: environment.baseUrl }],
 
+  exports: [NavbarComponent],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

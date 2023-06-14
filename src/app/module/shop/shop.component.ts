@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from 'src/app/model/iproduct';
 import { ShopService } from 'src/app/services/shop.service';
-import { Cart } from '../basket/cart-model/cartmodel';
+import { Cart } from 'src/app/module/cart-model/cartmodel';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -13,7 +13,9 @@ export class ShopComponent implements OnInit {
   productList: IProduct[] = [];
   selectedProduct: IProduct;
   constructor(private _shopService: ShopService, private _cart: Cart,
-    private router: Router, private _activatedRoute: ActivatedRoute) { }
+    private router: Router) {
+
+  }
 
   ngOnInit(): void {
     this.getProducts();
@@ -29,7 +31,7 @@ export class ShopComponent implements OnInit {
   addToCart(_product: IProduct) {
     this.selectedProduct = _product
     this._cart.addItem(this.selectedProduct);
-    console.log(this.selectedProduct);
+    this.router.navigateByUrl('/basket')
   }
 
   cartDetails(_product: IProduct) {
