@@ -1,0 +1,11 @@
+<div class="alert alert-success">
+    <span *ngIf="xcart.itemCount>0">
+        Kartınızda {{xcart.itemCount}} adet ürün bulunmaktadır.
+        <br>
+        Toplam {{xcart.total}} TL ürün sepetinizde bulunmaktadır.
+    </span>
+
+    <span *ngIf="xcart.itemCount==0">
+        <p>Sepetinizde henüz ürün bulunmaktadır.</p>
+    </span>
+</div>

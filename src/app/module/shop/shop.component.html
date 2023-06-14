@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of productList">
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <img src="{{item.image}}" alt="{{item.title}}">
+                    <div class="card-body">
+                        <h4 class="card-title">{{item.title}}</h4>
+                        <small class="text-muted">
+                            <div class="fas fa-lira-sign " style="color: black;">
+                                <h5>
+                                    {{item. price}} ₺
+                                </h5>
+                            </div>
+                        </small>
+                    </div>
+                    <div class="card-footer text-center bg-dark">
+                        <button (click)="cartDetails(item)" class="btn btn-outline-warning btn-md m-3">Ürün
+                            Detayı</button>
+                        <button (click)="addToCart(item)" class="btn btn-outline-success btn-md">Sepete
+                            Ekle</button>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
