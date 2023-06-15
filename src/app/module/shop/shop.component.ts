@@ -68,4 +68,8 @@ export class ShopComponent implements OnInit {
     }
 
   }
+
+  selected(_product: IProduct) {
+    this.selectedProduct = _product;
+  }
 }

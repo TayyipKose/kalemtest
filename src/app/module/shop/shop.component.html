@@ -24,7 +24,7 @@
                         <button class="btn btn-outline-success btn-md" (click)="openDetails(item)">Sepete
                             Ekle</button>
 
-                        <ng-container *ngIf="isShow==true">
+                        <ng-container *ngIf="isShow==true && selectedProduct === item">
                             <button (click)="add(item)" class="btn btn-success btn-sm m-2">+</button>
                             <input type="number" [(ngModel)]="x">
                             <button (click)="remove(item)" class="btn btn-danger btn-sm m-2">-</button>
