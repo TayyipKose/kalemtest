@@ -17,6 +17,10 @@ export class BasketComponent implements OnInit {
 
     this.adet = x;
     this._cart.updateQuantity(_product, this.adet)
+
+    if (this.adet < 1) {
+      this._cart.removeItem(_product.id);
+    }
   }
 
 }
