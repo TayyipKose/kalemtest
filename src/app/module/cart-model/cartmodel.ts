@@ -30,14 +30,17 @@ export class Cart {
     updateQuantity(_product: IProduct, _quantity: number,) {
         const index = this.basketItems.findIndex(i => i.product.id === _product.id);
         if (index !== -1) {
-            this.basketItems[index].adet = _quantity
+            if (_quantity > 0) {
+                this.basketItems[index].adet = _quantity;
+            }
+            else {
+                this.removeItem(_product.id);
+            }
         }
-        else if (index < 1) {
-            this.removeItem(_quantity);
-        }
-
         this.calculate();
     }
+
+
     removeItem(_id: number) {
         let index = this.basketItems.findIndex(i => i.product.id == _id);
         this.basketItems.splice(index, 1); //indexten itibaren 1 elemanı siler.
