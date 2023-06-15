@@ -2,7 +2,10 @@ import { compileInjectable } from "@angular/compiler";
 import { Injectable } from "@angular/core";
 import { IProduct } from "src/app/model/iproduct";
 
-
+interface CartItem {
+    product: IProduct;
+    adet: number;
+}
 @Injectable()
 export class Cart {
     public basketItems: CartItem[] = [];
@@ -14,7 +17,16 @@ export class Cart {
         if (item != undefined) {
             item.adet += _quantity;
         } else {
-            this.basketItems.push(new CartItem(_product, _quantity))
+            // this.basketItems.push(new CartItem(_product, _quantity))
+            this.basketItems.push({ product: _product, adet: _quantity });
+        }
+        this.calculate();
+    }
+
+    plusCount(_product: IProduct) {
+        let item = this.basketItems.find(i => i.product.id === _product.id);
+        if (item != undefined) {
+            item.adet += 1;
         }
         this.calculate();
     }
@@ -54,8 +66,8 @@ export class Cart {
     }
 }
 
-export class CartItem {
-    constructor(public product: IProduct,
-        public adet: number
-    ) { }
-}
+// export class CartItem {
+//     constructor(public product: IProduct,
+//         public adet: number
+//     ) { }
+// }

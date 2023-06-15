@@ -18,20 +18,23 @@
                             </div>
                         </small>
                     </div>
-                    <div class="card-footer text-center bg-dark">
-                        <button (click)="cartDetails(item)" class="btn btn-outline-warning btn-md m-3">Ürün
-                            Detayı</button>
-                        <button class="btn btn-outline-success btn-md" (click)="openDetails(item)">Sepete
-                            Ekle</button>
+                    <div class="card-footer text-center bg-dark row">
+                        <span class="col-6">
+                            <button (click)="cartDetails(item)" class="btn btn-outline-warning btn-md">Ürün
+                                Detayı</button>
+                        </span>
+                        <span class="col-6" *ngIf="getProductCountById(item.id) === 0">
+                            <button class="btn btn-outline-success btn-md" (click)="cart.addItem(item)">Sepete
+                                Ekle</button>
+                        </span>
 
-                        <ng-container *ngIf="isShow==true && selectedProduct === item">
-                            <button (click)="add(item)" class="btn btn-success btn-sm m-2">+</button>
-                            <input type="number" [(ngModel)]="x">
+
+                        <span class="col-6 d-flex " *ngIf="getProductCountById(item.id) > 0">
+                            <button (click)="cart.plusCount(item)" class="btn btn-success btn-sm m-2">+</button>
+                            <input class="countInput" type="number" [value]="getProductCountById(item.id)">
                             <button (click)="remove(item)" class="btn btn-danger btn-sm m-2">-</button>
-                            <hr>
-                            <button (click)="addToCart(item)" class="btn btn-primary [adet]=x"
-                                routerLink="/basket">Ekle</button>
-                        </ng-container>
+                        </span>
+
 
                     </div>
                 </div>

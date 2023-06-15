@@ -12,16 +12,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ShopComponent implements OnInit {
   x: number = 1;
   isShow: boolean = false;
-  productList: IProduct[] = [];
   selectedProduct: IProduct;
-  constructor(private _shopService: ShopService, private _cart: Cart,
-    private router: Router) {
+  productList: IProduct[] = [];
 
-  }
+  constructor(private _shopService: ShopService, public cart: Cart,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getProducts();
   }
+
   getProducts() {
     this._shopService.allProducts().subscribe(res => {
       if (res) {
@@ -30,9 +30,10 @@ export class ShopComponent implements OnInit {
       }
     })
   }
+
   addToCart(_product: IProduct) {
     this.selectedProduct = _product
-    this._cart.addItem(this.selectedProduct);
+    this.cart.addItem(this.selectedProduct);
     this.router.navigateByUrl('/basket')
   }
 
@@ -40,23 +41,25 @@ export class ShopComponent implements OnInit {
     this.selectedProduct = _product;
   }
 
+
   add(_product: IProduct) {
-    if (this.x == 0) {
-      this._cart.removeItem(_product.id);
-      this.isShow = !this.isShow;
-    }
-    this.x = this.x + 1;
+    this.cart.plusCount(_product);
+    // if (this.x == 0) {
+    //   this.cart.removeItem(_product.id);
+    //   this.isShow = !this.isShow;
+    // }
+    // this.x = this.x + 1;
   }
 
   remove(_product: IProduct) {
-    if (this.x == 0) {
-      this._cart.removeItem(_product.id)
+    if (this.x > 1) {
+      this.cart.removeItem(_product.id);
+      this.isShow = !this.isShow;
     }
     else {
       this.x = this.x - 1;
     }
   }
-
 
   openDetails(_product: IProduct) {
     this.isShow = !this.isShow;
@@ -66,10 +69,18 @@ export class ShopComponent implements OnInit {
     else {
       this.selectedProduct = _product;
     }
-
   }
 
   selected(_product: IProduct) {
     this.selectedProduct = _product;
+  }
+
+  getProductCountById(id: number) {
+    let item = this.cart.basketItems.find(i => i.product.id === id);
+    if (item != undefined) {
+      return item.adet
+    } else {
+      return 0
+    }
   }
 }
