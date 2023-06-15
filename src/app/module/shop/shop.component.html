@@ -21,8 +21,18 @@
                     <div class="card-footer text-center bg-dark">
                         <button (click)="cartDetails(item)" class="btn btn-outline-warning btn-md m-3">Ürün
                             Detayı</button>
-                        <button (click)="addToCart(item)" class="btn btn-outline-success btn-md">Sepete
+                        <button class="btn btn-outline-success btn-md" (click)="openDetails(item)">Sepete
                             Ekle</button>
+
+                        <ng-container *ngIf="isShow==true">
+                            <button (click)="add(item)" class="btn btn-success btn-sm m-2">+</button>
+                            <input type="number" [(ngModel)]="x">
+                            <button (click)="remove(item)" class="btn btn-danger btn-sm m-2">-</button>
+                            <hr>
+                            <button (click)="addToCart(item)" class="btn btn-primary [adet]=x"
+                                routerLink="/basket">Ekle</button>
+                        </ng-container>
+
                     </div>
                 </div>
             </div>

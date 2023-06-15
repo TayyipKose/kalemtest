@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Cart } from '../../cart-model/cartmodel';
 import { IProduct } from 'src/app/model/iproduct';
 
@@ -8,13 +8,14 @@ import { IProduct } from 'src/app/model/iproduct';
   styleUrls: ['./basket.component.scss']
 })
 export class BasketComponent implements OnInit {
-  adet: number = 1;
+  @Input() adet: number;
   constructor(public _cart: Cart) { }
 
   ngOnInit(): void {
-  }
-  updateAdet(_product: IProduct, x: number) {
 
+  }
+
+  updateAdet(_product: IProduct, x: number) {
     this.adet = x;
     this._cart.updateQuantity(_product, this.adet)
 

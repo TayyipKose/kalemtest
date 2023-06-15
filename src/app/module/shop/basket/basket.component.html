@@ -1,10 +1,8 @@
 <div class="container pt-100 mb-5">
     <h1 class="mb-2">Alışveriş Sepetiniz</h1>
     <div class="row">
-
-        <div class="col-8"> <!-- ürün varsa -->
-
-            <ng-container *ngIf="_cart.itemCount>0">
+        <div class="col-8">
+            <ng-container *ngIf="_cart.itemCount > 0">
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -18,23 +16,21 @@
                         <tr *ngFor="let item of _cart.basketItems">
                             <td><img src="{{item.product.image}}" width="80px"></td>
                             <td>{{item.product.title}}</td>
-                            <td><input type="number" class="form-control" [(ngModel)]="item.adet"
-                                    (change)="_cart.updateQuantity(item.product,item.adet)"></td>
-                            <td>{{adet* item.product.price | number: '1.2-2' }} TL</td>
+                            <td>
+                                <input type="number" class="form-control" [(ngModel)]="item.adet"
+                                    (change)="updateAdet(item.product, item.adet)">
+                            </td>
+                            <td>{{item.product.price | number: '1.2-2' }} TL</td>
                             <td>
                                 <button (click)="_cart.removeItem(item.product.id)"
                                     class="btn btn-danger btn-md">Sil</button>
                             </td>
-
                         </tr>
                     </tbody>
                 </table>
             </ng-container>
 
-            <!--  -->
-
-            <ng-container *ngIf="_cart.itemCount==0"> <!-- eğer ürün yoksa -->
-                {{_cart.total==0}}
+            <ng-container *ngIf="_cart.itemCount === 0">
                 <div class="alert alert-warning mt-3">
                     Sepetinizde ürün bulunmamaktadır.
                     <button routerLink="/" routerLinkActive="router-link-active" class="btn btn-link p-0">
@@ -43,33 +39,25 @@
                 </div>
             </ng-container>
         </div>
-
-
-        <!-- Sepet Detay Bölümü -->
         <div class="col-4">
             <ng-container>
                 <div class="text-left">
                     <h4>Alışveriş Özeti</h4>
-
                     <table class="table">
                         <tr>
                             <th>Toplam</th>
-                            <td>{{_cart.total | number: '1.2-2'}} TL</td>
+                            <td>{{ _cart.total | number: '1.2-2' }} TL</td>
                         </tr>
                     </table>
                     <div>
-
-                        <button routerLink="/shop" class="btn btn-secondary btn-sm m-3" routerLink='/'>Alışverişe devam
-                            et</button>
-                        <ng-container *ngIf="_cart.total>0">
+                        <button routerLink="/shop" class="btn btn-secondary btn-sm m-3">Alışverişe devam et</button>
+                        <ng-container *ngIf="_cart.total > 0">
                             <button routerLink="/checkout" class="btn btn-danger btn-sm ml-2">Alışverişi
                                 tamamla</button>
                         </ng-container>
-
                     </div>
                 </div>
             </ng-container>
         </div>
-
     </div>
 </div>

@@ -10,6 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
+  x: number = 1;
+  isShow: boolean = false;
   productList: IProduct[] = [];
   selectedProduct: IProduct;
   constructor(private _shopService: ShopService, private _cart: Cart,
@@ -36,5 +38,34 @@ export class ShopComponent implements OnInit {
 
   cartDetails(_product: IProduct) {
     this.selectedProduct = _product;
+  }
+
+  add(_product: IProduct) {
+    if (this.x == 0) {
+      this._cart.removeItem(_product.id);
+      this.isShow = !this.isShow;
+    }
+    this.x = this.x + 1;
+  }
+
+  remove(_product: IProduct) {
+    if (this.x == 0) {
+      this._cart.removeItem(_product.id)
+    }
+    else {
+      this.x = this.x - 1;
+    }
+  }
+
+
+  openDetails(_product: IProduct) {
+    this.isShow = !this.isShow;
+    if (this.x <= 0) {
+      this.isShow = !this.isShow;
+    }
+    else {
+      this.selectedProduct = _product;
+    }
+
   }
 }
