@@ -65,9 +65,4 @@ export class ShopComponent implements OnInit {
       return 0
     }
   }
-
-
-  off() {
-    this.showSpan = !this.showSpan;
-  }
 }
