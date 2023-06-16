@@ -30,7 +30,14 @@ export class Cart {
         }
         this.calculate();
     }
-
+    removeCount(_product: IProduct) {
+        let item = this.basketItems.find(i => i.product.id === _product.id);
+        if (item != undefined) {
+            if (item.adet > 0)
+                item.adet -= 1;
+        }
+        this.calculate();
+    }
     calculate() {
         this.itemCount = 0;
         this.total = 0;

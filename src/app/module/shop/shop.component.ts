@@ -12,6 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ShopComponent implements OnInit {
   x: number = 1;
   isShow: boolean = false;
+  showSpan: boolean = true;
+
   selectedProduct: IProduct;
   productList: IProduct[] = [];
 
@@ -41,26 +43,6 @@ export class ShopComponent implements OnInit {
     this.selectedProduct = _product;
   }
 
-
-  add(_product: IProduct) {
-    this.cart.plusCount(_product);
-    // if (this.x == 0) {
-    //   this.cart.removeItem(_product.id);
-    //   this.isShow = !this.isShow;
-    // }
-    // this.x = this.x + 1;
-  }
-
-  remove(_product: IProduct) {
-    if (this.x > 1) {
-      this.cart.removeItem(_product.id);
-      this.isShow = !this.isShow;
-    }
-    else {
-      this.x = this.x - 1;
-    }
-  }
-
   openDetails(_product: IProduct) {
     this.isShow = !this.isShow;
     if (this.x <= 0) {
@@ -82,5 +64,10 @@ export class ShopComponent implements OnInit {
     } else {
       return 0
     }
+  }
+
+
+  off() {
+    this.showSpan = !this.showSpan;
   }
 }
