@@ -8,7 +8,7 @@ import { IProduct } from 'src/app/model/iproduct';
   styleUrls: ['./basket.component.scss']
 })
 export class BasketComponent implements OnInit {
-  @Input() adet: number;
+  adet: number;
   constructor(public _cart: Cart) { }
 
   ngOnInit(): void {

@@ -23,6 +23,7 @@ export class Cart {
         this.calculate();
     }
 
+    //
     plusCount(_product: IProduct) {
         let item = this.basketItems.find(i => i.product.id === _product.id);
         if (item != undefined) {
@@ -30,6 +31,7 @@ export class Cart {
         }
         this.calculate();
     }
+    ////
     removeCount(_product: IProduct) {
         let item = this.basketItems.find(i => i.product.id === _product.id);
         if (item != undefined) {
@@ -38,6 +40,7 @@ export class Cart {
         }
         this.calculate();
     }
+    ////
     calculate() {
         this.itemCount = 0;
         this.total = 0;
@@ -46,7 +49,7 @@ export class Cart {
             this.total += (x.adet * x.product.price);
         })
     }
-
+    ////
     updateQuantity(_product: IProduct, _quantity: number,) {
         const index = this.basketItems.findIndex(i => i.product.id === _product.id);
         if (index !== -1) {
@@ -59,22 +62,17 @@ export class Cart {
         }
         this.calculate();
     }
-
+    ////
     removeItem(_id: number) {
         let index = this.basketItems.findIndex(i => i.product.id == _id);
         this.basketItems.splice(index, 1); //indexten itibaren 1 elemanı siler.
         this.calculate();
     }
-
+    ////
     clear() {
         this.basketItems = [];
         this.itemCount = 0;
         this.total = 0;
     }
-}
 
-// export class CartItem {
-//     constructor(public product: IProduct,
-//         public adet: number
-//     ) { }
-// }
+}
