@@ -11,7 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -21,7 +21,7 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   providers: [{ provide: 'BASE_API_URL', useValue: environment.baseUrl }],
 
-  exports: [NavbarComponent],
+  exports: [],
 
   bootstrap: [AppComponent]
 })

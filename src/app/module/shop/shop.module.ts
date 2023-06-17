@@ -8,13 +8,15 @@ import { CartSummartComponent } from './cart-summart/cart-summart.component';
 import { BasketComponent } from './basket/basket.component';
 import { Cart } from '../cart-model/cartmodel';
 import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from 'src/app/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     ShopComponent,
 
     CartSummartComponent,
-    BasketComponent
+    BasketComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
