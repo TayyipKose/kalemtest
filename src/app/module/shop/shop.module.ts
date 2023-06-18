@@ -16,7 +16,7 @@ import { NavbarComponent } from 'src/app/navbar/navbar.component';
 
     CartSummartComponent,
     BasketComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     CommonModule,
