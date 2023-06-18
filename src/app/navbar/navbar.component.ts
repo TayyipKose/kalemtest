@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Cart } from '../module/cart-model/cartmodel';
 
 @Component({
   selector: 'app-navbar',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  @Input() urunSayisi: number = 0;
-  constructor() { }
+
+  constructor(public cart: Cart) { }
 
 }
