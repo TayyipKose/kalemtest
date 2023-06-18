@@ -15,9 +15,7 @@ export class BasketComponent implements OnInit {
 
   constructor(public _cart: Cart, private router: Router, private _loginService: LoginService) { }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void { }
 
   updateAdet(_product: IProduct, x: number) {
     this.adet = x;

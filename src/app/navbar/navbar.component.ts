@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Cart } from '../module/cart-model/cartmodel';
 import { LoginService } from '../services/login.service';
 
@@ -8,12 +8,14 @@ import { LoginService } from '../services/login.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  isLoggedIn: boolean = false;
-  constructor(public cart: Cart, private _loginService: LoginService) { }
+  isLoggedIn: boolean = true;
 
+  constructor(public cart: Cart, private _loginService: LoginService) {
+    this.isLoggedIn = this._loginService.isAuthenticated();
+  }
 
   logout() {
     this._loginService.logout();
-    this.isLoggedIn = true;
+    this.isLoggedIn = this._loginService.isAuthenticated();
   }
 }

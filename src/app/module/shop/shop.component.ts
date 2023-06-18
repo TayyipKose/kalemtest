@@ -10,11 +10,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
-  x: number = 1;
-  isShow: boolean = false;
-  showSpan: boolean = true;
-
-  selectedProduct: IProduct;
+  isShow: boolean = false;//modalın açılıp kapanması
+  isSpanOpen: boolean = false; //span içindeki kapat butonu için
+  selectedProduct: IProduct;//
   productList: IProduct[] = [];
 
   constructor(private _shopService: ShopService, public cart: Cart,
@@ -39,18 +37,8 @@ export class ShopComponent implements OnInit {
     this.router.navigateByUrl('/basket')
   }
 
-  cartDetails(_product: IProduct) {
-    this.selectedProduct = _product;
-  }
-
-  openDetails(_product: IProduct) {
-    this.isShow = !this.isShow;
-    if (this.x <= 0) {
-      this.isShow = !this.isShow;
-    }
-    else {
-      this.selectedProduct = _product;
-    }
+  cartDetails(item: any) {
+    this.router.navigate(['/shop/details', item.id]);
   }
 
   selected(_product: IProduct) {

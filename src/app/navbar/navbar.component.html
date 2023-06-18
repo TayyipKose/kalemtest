@@ -20,6 +20,6 @@
 
     <ul class="navbar-nav m-2">
         <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
-        <li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
+        <li style="color: blue;" *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
     </ul>
 </nav>

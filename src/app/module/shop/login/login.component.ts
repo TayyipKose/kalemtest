@@ -26,6 +26,9 @@ export class LoginComponent implements OnInit {
           alert('Giriş Başarılı!');
           this.router.navigateByUrl('/basket');
         }
+        else {
+          this.loginService.isLoggedIn == false;
+        }
       },
       (error) => {
         alert('Giriş Başarısız')
