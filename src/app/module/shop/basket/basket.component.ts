@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Cart } from '../../cart-model/cartmodel';
 import { IProduct } from 'src/app/model/iproduct';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-basket',
@@ -9,7 +11,9 @@ import { IProduct } from 'src/app/model/iproduct';
 })
 export class BasketComponent implements OnInit {
   adet: number;
-  constructor(public _cart: Cart) { }
+  loginControl: boolean = false;
+
+  constructor(public _cart: Cart, private router: Router, private _loginService: LoginService) { }
 
   ngOnInit(): void {
 
@@ -21,6 +25,16 @@ export class BasketComponent implements OnInit {
 
     if (this.adet < 1) {
       this._cart.removeItem(_product.id);
+    }
+  }
+
+  //
+  completeOrder(): void {
+    // Kullanıcı giriş yapmışsa siparişi tamamla sayfasına yönlendir
+    if (this._loginService.isLoggedIn == true) {
+      this.router.navigateByUrl('/order');
+    } else {
+      this.router.navigateByUrl('/login');
     }
   }
 

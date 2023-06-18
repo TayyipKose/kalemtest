@@ -53,7 +53,7 @@
                     <div>
                         <button routerLink="/" class="btn btn-secondary btn-sm m-3">Alışverişe devam et</button>
                         <ng-container *ngIf="_cart.total > 0">
-                            <button routerLink="/checkout" class="btn btn-danger btn-sm ml-2">Alışverişi
+                            <button (click)="completeOrder()" class="btn btn-danger btn-sm ml-2">Alışverişi
                                 tamamla</button>
                         </ng-container>
                     </div>

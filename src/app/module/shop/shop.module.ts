@@ -9,6 +9,8 @@ import { BasketComponent } from './basket/basket.component';
 import { Cart } from '../cart-model/cartmodel';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from 'src/app/navbar/navbar.component';
+import { LoginComponent } from './login/login.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { NavbarComponent } from 'src/app/navbar/navbar.component';
     CartSummartComponent,
     BasketComponent,
     NavbarComponent,
+    LoginComponent,
+    OrderComponent,
   ],
   imports: [
     CommonModule,
