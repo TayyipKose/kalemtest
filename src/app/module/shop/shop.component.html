@@ -23,18 +23,23 @@
                         <span class="col-6">
                             <button [routerLink]="'/shop/details/' + item.id" (click)="cartDetails(item)"
                                 class="btn btn-outline-warning btn-md">Ürün Detayı</button>
+                        </span>
 
+                        <span class="col-6" *ngIf="getProductCountById(item.id) == 0">
 
+                            <button (click)="cart.addItem(item)" class="btn btn-outline-success btn-md">Sepete
+                                Ekle</button>
 
                         </span>
-                        <span class="col-6">
-                            <!-- İlgili düzenlemeler yapıldı -->
-                            <div class="text-center">
-                                <button (click)="cart.plusCount(item)" class="btn btn-success btn-sm m-1">+</button>
-                                <input class="countInput" type="text" [value]="getProductCountById(item.id)" min="1"
-                                    readonly required>
-                                <button (click)="cart.removeCount(item)" class="btn btn-danger btn-sm m-1">-</button>
-                            </div>
+
+
+                        <span class="col-6" *ngIf="getProductCountById(item.id) > 0">
+
+                            <button (click)="cart.plusCount(item)" class="btn btn-success btn-sm m-1">+</button>
+                            <input class="countInput" type="text" [value]="getProductCountById(item.id)" min="1"
+                                readonly required>
+                            <button (click)="cart.removeCount(item)" class="btn btn-danger btn-sm m-1">-</button>
+
                         </span>
                     </div>
                 </div>

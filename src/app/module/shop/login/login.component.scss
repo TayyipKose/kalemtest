@@ -7,7 +7,7 @@ body {
 }
 
 .card {
-    border:none;
+    border:1px solid blac opacity($color: green);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: rgb(253, 253, 253);
 }
