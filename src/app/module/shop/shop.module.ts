@@ -12,6 +12,7 @@ import { NavbarComponent } from 'src/app/navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { OrderComponent } from './order/order.component';
 import { DetailsComponent } from './details/details.component';
+import { ModalComponent } from './modal/modal.component';
 @NgModule({
   declarations: [
     ShopComponent,
@@ -21,6 +22,7 @@ import { DetailsComponent } from './details/details.component';
     LoginComponent,
     OrderComponent,
     DetailsComponent,
+    ModalComponent,
 
   ],
   imports: [

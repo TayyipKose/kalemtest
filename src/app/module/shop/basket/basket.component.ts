@@ -36,6 +36,8 @@ export class BasketComponent implements OnInit {
       this.router.navigateByUrl('/login');
     }
   }
+  openDialog(_id: number) {
 
+  }
 
 }
