@@ -10,6 +10,7 @@ import { LoginService } from 'src/app/services/login.service';
 export class LoginComponent implements OnInit {
   username: string;
   password: string;
+  loginFailed: boolean = false;
 
   constructor(private loginService: LoginService, private router: Router) { }
 
@@ -23,25 +24,25 @@ export class LoginComponent implements OnInit {
       (res) => {
         if (res) {
           this.loginService.isLoggedIn = true;
-          alert('Giriş Başarılı!');
+          localStorage.setItem('isLoggedIn', 'true')
           this.router.navigateByUrl('/basket');
-        }
-        else {
-          this.loginService.isLoggedIn == false;
         }
       },
       (error) => {
-        alert('Giriş Başarısız')
+        this.loginFailed = true;
         console.warn(error);
+        this.clearInputs();
         this.router.navigateByUrl('/login');
       }
     );
   }
-
+  clearInputs() {
+    this.username = '';
+    this.password = '';
+  }
   ////
   checkLoginStatus() {
-    // Sayfa yenilendiğinde veya bileşen yeniden yüklendiğinde oturum durumunu kontrol eder
-    //sonra bunu ngOnInit içine yazacağız ki sürekli isLoggedIn değişkeninin durumunu kontrol edelim.
-    this.loginService.isAuthenticated();
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    this.loginService.isLoggedIn = isLoggedIn === 'true';
   }
 }
