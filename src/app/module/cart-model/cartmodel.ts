@@ -87,7 +87,6 @@ export class Cart {
         this.basketItems.splice(index, 1); //indexten itibaren 1 elemanı siler.
         this.calculate();
         this.updateLocalStorage();
-
     }
     ////
     clear() {

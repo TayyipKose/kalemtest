@@ -8,7 +8,7 @@ import { Cart } from '../module/cart-model/cartmodel';
 })
 export class LoginService {
   private apiUrl = 'http://localhost:9000/api/login';
-  isLoggedIn: boolean = false;
+  isLoggedIn: boolean = localStorage.getItem('isLoggedIn') === 'true';
 
   constructor(private http: HttpClient) { }
 
@@ -21,6 +21,7 @@ export class LoginService {
   logout() {
     alert('Çıkış Yapıldı!');
     this.isLoggedIn = false;
+    localStorage.setItem('isLoggedIn', 'false');
   }
 
   isAuthenticated(): boolean {

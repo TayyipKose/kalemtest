@@ -3,6 +3,8 @@ import { Cart } from '../../cart-model/cartmodel';
 import { IProduct } from 'src/app/model/iproduct';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
+import { ModalComponent } from '../modal/modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-basket',
@@ -13,7 +15,7 @@ export class BasketComponent implements OnInit {
   adet: number;
   loginControl: boolean = false;
 
-  constructor(public _cart: Cart, private router: Router, private _loginService: LoginService) { }
+  constructor(public _cart: Cart, private router: Router, private _loginService: LoginService, private dialog: MatDialog) { }
 
   ngOnInit(): void { }
 
@@ -37,7 +39,19 @@ export class BasketComponent implements OnInit {
     }
   }
   openDialog(_id: number) {
+    const modalRef = this.dialog.open(ModalComponent, {
+      id: 'todoListDeleteModal',
+      width: '250px',
+      data: {
+        _id
+      }
+    });
 
+    modalRef.afterClosed().toPromise().then((modalres) => {
+      if (modalres) {
+        this._cart.removeItem(_id);
+        // İşlemlerinizi gerçekleştirin
+      }
+    });
   }
-
 }

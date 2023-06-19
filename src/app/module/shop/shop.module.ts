@@ -13,6 +13,9 @@ import { LoginComponent } from './login/login.component';
 import { OrderComponent } from './order/order.component';
 import { DetailsComponent } from './details/details.component';
 import { ModalComponent } from './modal/modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 @NgModule({
   declarations: [
     ShopComponent,
@@ -30,7 +33,10 @@ import { ModalComponent } from './modal/modal.component';
     ShopRoutingModule,
     HttpClientModule,
     FormsModule,
-
+    MatDialogModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatDividerModule
   ],
   providers: [Cart]
 })

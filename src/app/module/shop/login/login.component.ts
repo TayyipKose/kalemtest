@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
   }
   ////
   checkLoginStatus() {
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    this.loginService.isLoggedIn = isLoggedIn === 'true';
+    this.loginService.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
   }
 }
