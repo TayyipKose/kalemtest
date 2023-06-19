@@ -1,9 +1,28 @@
-.wrapper{
+.navbar-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-item {
+    margin-right: 15px;
+  }
+  
+  .cart-item-count {
     position: relative;
+    top: -8px;
+    font-size: 9px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 1px 3px;
+    border-radius: 50%;
+  }
+  
+  @media (max-width: 576px) {
+    .navbar-nav {
+      flex-direction: column;
     }
-    
-    .wrapper span{
-    position: absolute;
-    top: -2px;
-    right: -2px; 
+  
+    .nav-item {
+      margin-bottom: 10px;
     }
+  }
