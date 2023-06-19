@@ -26,21 +26,16 @@
 
 
                         </span>
-                        <span class="col-6" *ngIf="getProductCountById(item.id) === 0">
-                            <button class="btn btn-outline-success btn-md" (click)="cart.addItem(item)">Sepete
-                                Ekle</button>
-                        </span>
-
-
-                        <span class="span" *ngIf="getProductCountById(item.id)>0">
-                            <button (click)="cart.plusCount(item)" class="btn btn-success btn-sm m-2">+</button>
-                            <input class="countInput" type="text" [value]="getProductCountById(item.id)" min="1"
-                                readonly required>
-                            <button (click)="cart.removeCount(item)" class="btn btn-danger btn-sm m-2">-</button>
-                            <div class="container col-6">
-                                <button (click)="isSpanOpen = false" class="btn btn-primary btn-sm">Kapat</button>
+                        <span class="col-6">
+                            <!-- İlgili düzenlemeler yapıldı -->
+                            <div class="text-center">
+                                <button (click)="cart.plusCount(item)" class="btn btn-success btn-sm m-1">+</button>
+                                <input class="countInput" type="text" [value]="getProductCountById(item.id)" min="1"
+                                    readonly required>
+                                <button (click)="cart.removeCount(item)" class="btn btn-danger btn-sm m-1">-</button>
                             </div>
                         </span>
+
 
 
                     </div>

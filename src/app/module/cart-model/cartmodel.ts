@@ -11,6 +11,19 @@ export class Cart {
     public basketItems: CartItem[] = [];
     public itemCount: number = 0; //toplam ürün sayısı
     public total: number = 0; //toplam fiyat
+    constructor() {
+        const storedItems = localStorage.getItem('basketItems');
+        if (storedItems) {
+            this.basketItems = JSON.parse(storedItems);
+            this.calculate();
+        }
+    }
+
+    private updateLocalStorage() {
+        localStorage.setItem('basketItems', JSON.stringify(this.basketItems));
+    }
+
+
 
     addItem(_product: IProduct, _quantity: any = 1) {
         let item = this.basketItems.find(i => i.product.id === _product.id);
@@ -21,6 +34,7 @@ export class Cart {
             this.basketItems.push({ product: _product, adet: _quantity });
         }
         this.calculate();
+        this.updateLocalStorage();
     }
 
     //
@@ -30,6 +44,8 @@ export class Cart {
             item.adet += 1;
         }
         this.calculate();
+        this.updateLocalStorage();
+
     }
     ////
     removeCount(_product: IProduct) {
@@ -39,6 +55,8 @@ export class Cart {
                 item.adet -= 1;
         }
         this.calculate();
+        this.updateLocalStorage();
+
     }
     ////
     calculate() {
@@ -61,18 +79,24 @@ export class Cart {
             }
         }
         this.calculate();
+        this.updateLocalStorage();
+
     }
     ////
     removeItem(_id: number) {
         let index = this.basketItems.findIndex(i => i.product.id == _id);
         this.basketItems.splice(index, 1); //indexten itibaren 1 elemanı siler.
         this.calculate();
+        this.updateLocalStorage();
+
     }
     ////
     clear() {
         this.basketItems = [];
         this.itemCount = 0;
         this.total = 0;
+        this.updateLocalStorage();
+
     }
 
 }
