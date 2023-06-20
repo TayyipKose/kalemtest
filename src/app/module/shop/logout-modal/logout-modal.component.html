@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Çıkış</h1>
+<div></div>
+<div mat-dialog-content>
+    Çıkış yapmak istediğinizden emin misiniz?
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" mat-stroked-button mat-dialog (click)="closeModal()">İptal</button>
+    <button mat-raised-button color="accent" mat-stroked-button mat-dialog-close cdkFocusInitial
+        (click)="delete()">Çıkış</button>
+</div>

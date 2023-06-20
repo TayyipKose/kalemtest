@@ -19,7 +19,6 @@ export class LoginService {
   }
 
   logout() {
-    alert('Çıkış Yapıldı!');
     this.isLoggedIn = false;
     localStorage.setItem('isLoggedIn', 'false');
   }

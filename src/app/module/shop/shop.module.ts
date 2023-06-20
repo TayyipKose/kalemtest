@@ -18,6 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { ContactComponent } from './contact/contact.component';
 import { MatBadgeModule } from '@angular/material/badge';
+import { LogoutModalComponent } from './logout-modal/logout-modal.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     DetailsComponent,
     ModalComponent,
     ContactComponent,
+    LogoutModalComponent,
 
   ],
   imports: [
