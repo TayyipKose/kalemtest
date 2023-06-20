@@ -29,7 +29,7 @@ export class ShopComponent implements OnInit {
   getProducts() {
     this._shopService.allProducts().subscribe(res => {
       if (res) {
-        this.productList = res?.data?.data6 ?? [];
+        this.productList = res?.data ?? [];
         console.log(this.productList);
       }
     });

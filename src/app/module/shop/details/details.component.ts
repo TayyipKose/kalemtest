@@ -10,10 +10,13 @@ import { ShopService } from 'src/app/services/shop.service';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
-  constructor(private _shopService: ShopService) { }
-
-  ngOnInit(): void {
-
+  id: string | null;
+  title: string | null;
+  constructor(private _shopService: ShopService, private rout: ActivatedRoute) {
+    this.id = rout.snapshot.paramMap.get('id');
+    this.title = rout.snapshot.paramMap.get('title');
   }
+
+  ngOnInit(): void { }
 
 }
