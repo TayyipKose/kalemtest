@@ -31,6 +31,7 @@ import { LogoutModalComponent } from './logout-modal/logout-modal.component';
     ModalComponent,
     ContactComponent,
     LogoutModalComponent,
+
   ],
   imports: [
     CommonModule,
