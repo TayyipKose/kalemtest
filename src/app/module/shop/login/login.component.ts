@@ -36,6 +36,8 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+
   clearInputs() {
     this.username = '';
     this.password = '';

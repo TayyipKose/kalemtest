@@ -6,17 +6,9 @@ import { Cart } from 'src/app/module/cart-model/cartmodel';
   templateUrl: './cart-summart.component.html',
   styleUrls: ['./cart-summart.component.scss']
 })
-export class CartSummartComponent implements OnInit, OnChanges {
+export class CartSummartComponent implements OnInit {
   isShow: boolean = false;
+
   constructor(public xcart: Cart) { }
-
-  ngOnInit(): void {
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-  }
-
-
-
-
+  ngOnInit(): void { }
 }

@@ -2,10 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IProduct } from 'src/app/model/iproduct';
-import { LoginService } from 'src/app/services/login.service';
 import { ProductDetailService } from 'src/app/services/product-detail.service';
 import { ShopService } from 'src/app/services/shop.service';
-import { environment } from '../../../../environments/environment';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',

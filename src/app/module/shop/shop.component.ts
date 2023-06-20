@@ -35,23 +35,25 @@ export class ShopComponent implements OnInit {
     });
   }
 
-
+  //
   addToCart(_product: IProduct) {
     this.selectedProduct = _product;
     this.cart.addItem(this.selectedProduct);
     this.router.navigateByUrl('/basket');
   }
 
+  //
   cartDetails(item: any) {
     this.router.navigate(['/shop/details', item.id]);
   }
 
-
+  //
   selected(_product: IProduct) {
     this.selectedProduct = _product;
   }
 
 
+  //
   getProductCountById(id: number) {//eklenen ürünün adeti
     let item = this.cart.basketItems.find(i => i.product.id === id);
     if (item !== undefined) {

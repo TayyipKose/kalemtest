@@ -7,11 +7,6 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
-
+  ngOnInit(): void { }
 }
