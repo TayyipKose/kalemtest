@@ -14,6 +14,11 @@ export class ShopService implements OnInit {
     this.allProducts();
   }
   allProducts(): Observable<any> {
-    return this._http.get<IProduct[]>(`${this.baseUrl}/api/products`);
+    return this._http.get<IProduct[]>(`${this.baseUrl}/products`);
+  }
+
+
+  getProductById(id: string): Observable<any> {
+    return this._http.get<IProduct>(this.baseUrl + '/products/' + id)
   }
 }

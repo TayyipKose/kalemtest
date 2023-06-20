@@ -1,19 +1,16 @@
-<div class="container mt-3">
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <div class="card">
-                <img src="" alt="" class="card-img-top">
-                <div class="card-body">
-                    <h4>ID: {{id}}</h4>
-                    <h5 class="card-title">Ürün Adı: {{title}} </h5>
-                    <p class="card-text">Fiyat: ₺</p>
-                </div>
-                <div class="card-footer text-center">
-                    <a routerLink="/" class="btn btn-primary">Geri Dön</a>
-                </div>
-            </div>
+<div class="container mt-3 vh-100 d-flex justify-content-center align-items-center">
+    <div class="card border-0 shadow-lg">
+        <div class="text-center">
+            <img src="{{product?.image}}" alt="{{product?.title}}"
+                style="width: 300px; height: 300px; margin-left: 4px; margin-top: 10px;" class="card-img-top">
+        </div>
+        <hr>
+        <div class="card-body">
+            <h4 style="color: rgb(255, 0, 0);" class="card-title text-center">{{product?.title}}</h4>
+            <h4 class="card-title text-center">Fiyat: {{product?.price}} ₺</h4>
+        </div>
+        <div class="card-footer bg-primary text-center">
+            <a routerLink="/" class="btn btn-light">Geri Dön</a>
         </div>
     </div>
 </div>
-
-<h3></h3>
