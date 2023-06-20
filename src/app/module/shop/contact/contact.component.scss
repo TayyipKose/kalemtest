@@ -1,0 +1,51 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+.card {
+    border: 1px solid black;
+}
+
+.card-header {
+    background-color: #343a40;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+}
+
+.card-body {
+    padding: 40px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    border-radius: 0;
+}
+
+.form-group input[type="submit"] {
+    background-color: #343a40;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+}
+
+@media (max-width: 576px) {
+    .container {
+        margin-top: 50px;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+}

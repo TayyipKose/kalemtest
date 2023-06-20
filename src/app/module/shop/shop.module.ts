@@ -16,6 +16,9 @@ import { ModalComponent } from './modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
+import { ContactComponent } from './contact/contact.component';
+import { MatBadgeModule } from '@angular/material/badge';
+
 @NgModule({
   declarations: [
     ShopComponent,
@@ -26,6 +29,7 @@ import { MatDividerModule } from '@angular/material/divider';
     OrderComponent,
     DetailsComponent,
     ModalComponent,
+    ContactComponent,
 
   ],
   imports: [
