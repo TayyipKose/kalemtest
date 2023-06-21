@@ -18,7 +18,7 @@ export class ShopService implements OnInit {
   }
 
 
-  getProductById(id: string): Observable<any> {
+  getProductById(id: string): Observable<IProduct> {
     return this._http.get<IProduct>(this.baseUrl + '/products/' + id)
   }
 }
