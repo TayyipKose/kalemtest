@@ -40,9 +40,8 @@ export class NavbarComponent {
   }
   openMenu() {
     const modalRef = this.dialog.open(UserModalComponent, {
-      id: 'todoListDeleteModal',
-      width: '300px',
-      height: '200px',
+      id: '',
+      width: '125px',
       data: {}
     });
 

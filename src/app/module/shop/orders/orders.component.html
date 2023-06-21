@@ -4,12 +4,12 @@
     <div class="row">
         <div class="col-md-3 mt-5">
             <div class="list-group mt-4">
-                <a routerLinkActive="active" routerLink="/" class="list-group-item list-group-item-action">Alışveriş
+                <a routerLink="/" class="list-group-item list-group-item-action">Alışveriş
                     Sayfası</a>
                 <a routerLinkActive="active" routerLink="/basket"
                     class="list-group-item list-group-item-action">Sepetim</a>
-                <a routerLinkActive="active" (click)="logout()"
-                    class="list-group-item list-group-item-action disabled">Çıkış Yap</a>
+                <a routerLinkActive="active" (click)="logout()" class="list-group-item list-group-item-action">Çıkış
+                    Yap</a>
             </div>
         </div>
 
@@ -24,6 +24,7 @@
                         <th>Toplam Fiyat</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <tr *ngFor="let item of orders" class="table-hover-row">
                         <td>{{ item.siparisNo }}</td>
