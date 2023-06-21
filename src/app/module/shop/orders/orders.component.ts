@@ -32,6 +32,7 @@ export class OrdersComponent implements OnInit {
   ;
   logout() {
     this._loginService.logout();
+    this.cart.clear();
     this.router.navigateByUrl('/');
   }
 }
