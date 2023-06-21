@@ -1,0 +1,14 @@
+.table-hover tbody tr:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  .table-hover-row:nth-child(even):hover {
+    background-color: #343a40;
+    color: white;
+  }
+  
+  .table-hover-row:nth-child(odd):hover {
+    background-color: #f8f9fa;
+    color: black;
+  }

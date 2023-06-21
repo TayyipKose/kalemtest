@@ -31,7 +31,7 @@ export class BasketComponent implements OnInit {
   //
   completeOrder(): void {
     if (this._loginService.isLoggedIn == true) {
-      this.router.navigateByUrl('/order');
+      this.router.navigateByUrl('/orders');
       this._cart.clear();
     } else {
       alert('Sipariş Vermek İçin Önce Lütfen Giriş Yapınız!')

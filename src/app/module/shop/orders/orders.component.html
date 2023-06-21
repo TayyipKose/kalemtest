@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <h1 class="text-center mt-4">Siparişler</h1>
+    <table class="table table-striped table-hover table-dark table-bordered mt-4">
+        <thead>
+            <tr>
+                <th>Sipariş No</th>
+                <th>Adet</th>
+                <th>Tarih</th>
+                <th>Toplam Fiyat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of orders" class="table-hover-row">
+                <td>{{ item.siparisNo }}</td>
+                <td>{{ item.adet }}</td>
+                <td>{{ item.tarih | date }}</td>
+                <td>{{ item.toplamFiyat }} €</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

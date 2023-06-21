@@ -29,9 +29,9 @@
             </p>
         </li>
 
-        <li style="color: white; margin-top: 1rem;" *ngIf="isLoggedIn" class="nav-item">
-            <p (click)="openDialog2()">
-                <i class="fa-solid fa-right-from-bracket"></i>
+        <li style="color: white; margin-top: 1rem;" *ngIf="isLoggedIn" class="nav-item" (mouseenter)="openMenu()">
+            <p (click)=" openDialog2()">
+                <i class="fa-solid fa-user" style="color: #ffffff;"></i>
             </p>
         </li>
 

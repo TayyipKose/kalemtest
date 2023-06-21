@@ -110,4 +110,12 @@ export class Cart {
         this.updateLocalStorage();
     }
 
+
+
+    /////////
+
+    getTotalPrice(): number {
+        return this.total;
+    }
+
 }
