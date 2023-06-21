@@ -10,7 +10,6 @@ import { Cart } from '../cart-model/cartmodel';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from 'src/app/navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
-import { OrderComponent } from './order/order.component';
 import { DetailsComponent } from './details/details.component';
 import { ModalComponent } from './modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -26,12 +25,10 @@ import { LogoutModalComponent } from './logout-modal/logout-modal.component';
     BasketComponent,
     NavbarComponent,
     LoginComponent,
-    OrderComponent,
     DetailsComponent,
     ModalComponent,
     ContactComponent,
     LogoutModalComponent,
-
   ],
   imports: [
     CommonModule,

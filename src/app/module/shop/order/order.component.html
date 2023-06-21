@@ -1,7 +1,14 @@
-<div
-    style="display: flex; align-items: center; justify-content: center; height: 100vh; flex-direction: column-reverse;">
-    <h1 style="color: red; text-align: center;">Siparişiniz Alınmıştır</h1>
-    <p>
-        <a routerLink="/">Ana Sayfaya Dönmek İçin tıklayınız. </a>
-    </p>
-</div>
+<table>
+    <thead>
+        <tr>
+            <th>Sipariş Tarihi</th>
+            <th>Toplam Ürün</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orders" (click)="openModal(order)">
+            <td>{{ order.orderDate}}</td>
+            <td>{{ order.orderItems.length }}</td>
+        </tr>
+    </tbody>
+</table>
