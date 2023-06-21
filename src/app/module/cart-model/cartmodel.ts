@@ -18,12 +18,13 @@ export class Cart {
         }
     }
 
+    ////
     private updateLocalStorage() {
         localStorage.setItem('basketItems', JSON.stringify(this.basketItems));
     }
 
 
-
+    //////
     addItem(_product: IProduct, _quantity: any = 1) {
         let item = this.basketItems.find(i => i.product.id === _product.id);
         if (item != undefined) {
@@ -36,7 +37,9 @@ export class Cart {
         this.updateLocalStorage();
     }
 
-    //
+
+
+    ////
     plusCount(_product: IProduct) {
         let item = this.basketItems.find(i => i.product.id === _product.id);
         if (item != undefined) {
@@ -46,6 +49,8 @@ export class Cart {
         this.updateLocalStorage();
 
     }
+
+
     ////
     removeCount(_product: IProduct) {
         let item = this.basketItems.find(i => i.product.id === _product.id);
@@ -57,6 +62,8 @@ export class Cart {
         this.updateLocalStorage();
 
     }
+
+
     ////
     calculate() {
         this.itemCount = 0;
@@ -66,6 +73,9 @@ export class Cart {
             this.total += (x.adet * x.product.price);
         })
     }
+
+
+
     ////
     updateQuantity(_product: IProduct, _quantity: number,) {
         const index = this.basketItems.findIndex(i => i.product.id === _product.id);
@@ -79,8 +89,10 @@ export class Cart {
         }
         this.calculate();
         this.updateLocalStorage();
-
     }
+
+
+
     ////
     removeItem(_id: number) {
         let index = this.basketItems.findIndex(i => i.product.id == _id);
@@ -88,13 +100,15 @@ export class Cart {
         this.calculate();
         this.updateLocalStorage();
     }
+
+
+
     ////
     clear() {
         this.basketItems = [];
         this.itemCount = 0;
         this.total = 0;
         this.updateLocalStorage();
-
     }
 
 }

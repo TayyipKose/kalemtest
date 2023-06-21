@@ -13,6 +13,8 @@ export class ShopService implements OnInit {
   ngOnInit(): void {
     this.allProducts();
   }
+
+
   allProducts(): Observable<any> {
     return this._http.get<IProduct[]>(`${this.baseUrl}/products`);
   }
