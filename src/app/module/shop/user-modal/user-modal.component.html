@@ -1,0 +1,12 @@
+<h1 mat-dialog-title style="text-align: center;">Menü</h1>
+<div mat-dialog-content style="text-align: center;">
+    Hangi işlemi yapmak istersiniz?</div>
+
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">
+    <div fxLayout="row" fxLayoutGap="8px">
+        <button mat-button mat-dialog (click)="closeModal()">İptal</button>
+        <button mat-button mat-dialog color="warn" (click)="out()">Çıkış</button>
+    </div>
+    <button mat-raised-button color="primary" mat-stroked-button mat-dialog cdkFocusInitial (click)="delete()">Profil
+        Sayfası</button>
+</div>

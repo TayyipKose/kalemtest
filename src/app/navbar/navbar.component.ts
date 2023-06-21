@@ -3,6 +3,8 @@ import { Cart } from '../module/cart-model/cartmodel';
 import { LoginService } from '../services/login.service';
 import { MatDialog } from '@angular/material/dialog';
 import { LogoutModalComponent } from '../module/shop/logout-modal/logout-modal.component';
+import { UserModalComponent } from '../module/shop/user-modal/user-modal.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +14,8 @@ import { LogoutModalComponent } from '../module/shop/logout-modal/logout-modal.c
 export class NavbarComponent {
   isLoggedIn: boolean = true;
 
-  constructor(private dialog: MatDialog, public cart: Cart, private _loginService: LoginService) {
+  constructor(private dialog: MatDialog, public cart: Cart, private _loginService: LoginService,
+    private router: Router) {
     this.isLoggedIn = this._loginService.isAuthenticated();
   }
 
@@ -36,6 +39,19 @@ export class NavbarComponent {
     });
   }
   openMenu() {
+    const modalRef = this.dialog.open(UserModalComponent, {
+      id: 'todoListDeleteModal',
+      width: '300px',
+      height: '200px',
+      data: {}
+    });
 
+    modalRef.afterClosed().toPromise().then((modalres) => {
+      if (modalres === 'logout') {
+        this.logout();
+      } else if (modalres === 'orders') {
+        this.router.navigateByUrl('/orders');
+      }
+    });
   }
 }

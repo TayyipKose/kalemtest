@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { IProduct } from 'src/app/model/iproduct';
 import { Cart } from '../../cart-model/cartmodel';
 import { OrderService } from 'src/app/services/order.service';
+import { LoginService } from 'src/app/services/login.service';
+import { Route } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-orders',
@@ -12,7 +15,8 @@ export class OrdersComponent implements OnInit {
   orderedProducts: IProduct[];
   totalPrice: number;
 
-  constructor(private cart: Cart, private orderService: OrderService) { }
+  constructor(private cart: Cart, private orderService: OrderService, private _loginService: LoginService,
+    private router: Router) { }
 
   ngOnInit(): void { }
   orders = [
@@ -26,5 +30,8 @@ export class OrdersComponent implements OnInit {
     { siparisNo: 8, adet: 5, tarih: new Date(), toplamFiyat: 2399.99 },
   ];
   ;
-
+  logout() {
+    this._loginService.logout();
+    this.router.navigateByUrl('/');
+  }
 }
