@@ -30,7 +30,6 @@ export class Cart {
         if (item != undefined) {
             item.adet += _quantity;
         } else {
-            // this.basketItems.push(new CartItem(_product, _quantity))
             this.basketItems.push({ product: _product, adet: _quantity });
         }
         this.calculate();
