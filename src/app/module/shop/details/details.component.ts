@@ -34,7 +34,8 @@ export class DetailsComponent implements OnInit {
         }
       },
       error: (error) => {
-        console.warn('İşlem Gerçekleştirilemedi');
+        console.warn(error);
+        console.warn('İşlem Başarısız!');
       }
     });
   }
