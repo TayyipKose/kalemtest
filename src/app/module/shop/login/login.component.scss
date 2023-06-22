@@ -1,26 +1,5 @@
-body {
-    background-color: #f8f9fa;
-}
-
-.container {
-    height: 80vh;
-}
-
-.card {
-    border:1px solid blac opacity($color: green);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: rgb(253, 253, 253);
-}
-
-.card-body {
-    padding: 40px;
-}
-
-.card-title {
-    font-size: 24px;
-    margin-bottom: 30px;
-}
-
-.form-group label {
-    font-weight: bold;
+.container{
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
 }
