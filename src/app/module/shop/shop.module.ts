@@ -20,6 +20,7 @@ import { LogoutModalComponent } from './logout-modal/logout-modal.component';
 import { OrdersComponent } from './orders/orders.component';
 import { UserModalComponent } from 'src/app/module/shop/user-modal/user-modal.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { LoginErrorComponent } from './login-error/login-error.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MatMenuModule } from '@angular/material/menu';
     LogoutModalComponent,
     OrdersComponent,
     UserModalComponent,
+    LoginErrorComponent,
   ],
   imports: [
     CommonModule,

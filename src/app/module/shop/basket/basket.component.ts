@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { ModalComponent } from '../modal/modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { LoginErrorComponent } from '../login-error/login-error.component';
 
 @Component({
   selector: 'app-basket',
@@ -34,10 +35,13 @@ export class BasketComponent implements OnInit {
       this.router.navigateByUrl('/orders');
       this._cart.clear();
     } else {
-      alert('Sipariş Vermek İçin Önce Lütfen Giriş Yapınız!')
-      this.router.navigateByUrl('/login');
+      this.openDialog2();
+      // this.router.navigateByUrl('/login');
     }
   }
+
+
+  //////////
   openDialog(_id: number) {
     const modalRef = this.dialog.open(ModalComponent, {
       id: 'todoListDeleteModal',
@@ -51,6 +55,23 @@ export class BasketComponent implements OnInit {
       if (modalres) {
         this._cart.removeItem(_id);
         // İşlemlerinizi gerçekleştirin
+      }
+    });
+  }
+
+
+  //////////
+  openDialog2() {
+    const modalRef = this.dialog.open(LoginErrorComponent, {
+      id: 'login',
+      width: '250px',
+      data: {
+      }
+    });
+
+    modalRef.afterClosed().toPromise().then((modalres) => {
+      if (modalres === 'login') {
+        this.router.navigateByUrl('/login')
       }
     });
   }

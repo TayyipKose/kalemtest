@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Giriş</h1>
+<div mat-dialog-content>
+    Sipariş vermek için önce giriş yapmalısınız!
+</div>
+
+<div mat-dialog-actions style="display: flex; justify-content: flex-end;">
+    <button mat-button mat-dialog (click)="close()">İptal</button>
+    <button mat-raised-button color="primary" mat-stroked-button mat-dialog cdkFocusInitial
+        (click)="login()">Giriş</button>
+</div>
