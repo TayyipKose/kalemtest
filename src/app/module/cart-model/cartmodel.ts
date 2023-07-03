@@ -58,7 +58,6 @@ export class Cart {
         }
         this.calculate();
         this.updateLocalStorage();
-
     }
 
 
@@ -90,7 +89,6 @@ export class Cart {
     }
 
 
-
     ////
     removeItem(_id: number) {
         let index = this.basketItems.findIndex(i => i.product.id == _id);
@@ -100,7 +98,6 @@ export class Cart {
     }
 
 
-
     ////
     clear() {
         this.basketItems = [];
@@ -108,8 +105,6 @@ export class Cart {
         this.total = 0;
         this.updateLocalStorage();
     }
-
-
 
     /////////
 

@@ -12,20 +12,11 @@ import { LoginErrorComponent } from '../login-error/login-error.component';
   templateUrl: './basket.component.html',
   styleUrls: ['./basket.component.scss']
 })
-export class BasketComponent implements OnInit {
+export class BasketComponent {
   adet: number;
   constructor(public _cart: Cart, private router: Router, private _loginService: LoginService, private dialog: MatDialog) { }
 
-  ngOnInit(): void { }
 
-  updateAdet(_product: IProduct, x: number) {
-    this.adet = x;
-    this._cart.updateQuantity(_product, this.adet)
-
-    if (this.adet < 1) {
-      this._cart.removeItem(_product.id);
-    }
-  }
 
   //
   completeOrder(): void {

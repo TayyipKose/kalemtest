@@ -3,7 +3,6 @@ import { IProduct } from 'src/app/model/iproduct';
 import { Cart } from '../../cart-model/cartmodel';
 import { OrderService } from 'src/app/services/order.service';
 import { LoginService } from 'src/app/services/login.service';
-import { Route } from '@angular/router';
 import { Router } from '@angular/router';
 
 @Component({
