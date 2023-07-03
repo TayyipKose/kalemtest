@@ -43,7 +43,6 @@ export class BasketComponent {
     modalRef.afterClosed().toPromise().then((modalres) => {
       if (modalres) {
         this._cart.removeItem(_id);
-        // İşlemlerinizi gerçekleştirin
       }
     });
   }
