@@ -13,6 +13,7 @@
                             <th>Ürün Fiyatı</th>
                         </tr>
                     </thead>
+
                     <tbody *ngFor="let item of _cart.basketItems ">
                         <tr *ngIf="item.adet > 0">
                             <td><img src="{{item.product.image}}" width="80px"></td>

@@ -30,7 +30,7 @@ export class DetailsComponent implements OnInit {
           this.product = response.data;
           console.log(this.product);
         } else {
-          alert('İşlem Başarısız!')
+          alert('İşlem Başarısız!');
         }
       },
       error: (error) => {
