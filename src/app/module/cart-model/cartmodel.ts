@@ -46,7 +46,6 @@ export class Cart {
         }
         this.calculate();
         this.updateLocalStorage();
-
     }
 
 

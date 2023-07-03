@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 })
 export class ShopComponent implements OnInit {
   isShow: boolean = false; // modalın açılıp kapanması
-  isSpanOpen: boolean = false; // span içindeki kapat butonu için
   selectedProduct: IProduct;
   productList: IProduct[] = [];
 

@@ -14,8 +14,6 @@ import { LoginErrorComponent } from '../login-error/login-error.component';
 })
 export class BasketComponent implements OnInit {
   adet: number;
-  loginControl: boolean = false;
-
   constructor(public _cart: Cart, private router: Router, private _loginService: LoginService, private dialog: MatDialog) { }
 
   ngOnInit(): void { }
@@ -34,9 +32,9 @@ export class BasketComponent implements OnInit {
     if (this._loginService.isLoggedIn == true) {
       this.router.navigateByUrl('/orders');
       this._cart.clear();
-    } else {
+    }
+    else {
       this.openDialog2();
-      // this.router.navigateByUrl('/login');
     }
   }
 
